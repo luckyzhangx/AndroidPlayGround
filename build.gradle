@@ -22,6 +22,14 @@ allprojects {
     }
 }
 
+subprojects {
+    apply plugin: 'com.android.application'
+
+    dependencies {
+        implementation "android.arch.lifecycle:extensions:1.1.1"
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
