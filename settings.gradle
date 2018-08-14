@@ -1,1 +1,1 @@
-include ':app', ':androidarchitecturecomponents'
+include ':app', ':androidarchitecturecomponents', ':rxandroid'
