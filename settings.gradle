@@ -1,1 +1,1 @@
-include ':app', ':androidarchitecturecomponents', ':rxandroid'
+include ':app', ':androidarchitecturecomponents', ':rxandroid', ':viewrenderer'
