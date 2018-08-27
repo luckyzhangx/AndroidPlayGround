@@ -1,1 +1,1 @@
-include ':app', ':androidarchitecturecomponents', ':rxandroid', ':viewrenderer'
+include ':app', ':androidarchitecturecomponents', ':rxandroid', ':viewrenderer', ':dropdownlist'
