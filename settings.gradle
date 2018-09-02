@@ -1,1 +1,6 @@
-include ':app', ':androidarchitecturecomponents', ':rxandroid', ':viewrenderer', ':dropdownlist', ':classinfocache', ':CoreJavaLibs', ':coreandroidlibs'
+include ':CoreJavaLibs',
+        ':CoreAndroidLibs',
+
+        ':androidarchitecturecomponents',
+        ':viewrenderer',
+        ':dropdownlist'
