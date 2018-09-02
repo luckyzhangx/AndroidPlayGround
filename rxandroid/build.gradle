@@ -1,12 +1,9 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 27
 
-
-
     defaultConfig {
-        applicationId "com.luckyzhangx.rxandroid"
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
@@ -26,6 +23,8 @@ android {
 }
 
 dependencies {
+    implementation project(":CoreJavaLibs")
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'com.android.support:appcompat-v7:27.1.1'
