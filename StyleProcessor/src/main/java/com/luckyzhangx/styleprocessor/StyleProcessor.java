@@ -4,7 +4,6 @@ import com.google.auto.service.AutoService;
 import com.google.common.collect.ImmutableSet;
 import com.luckyzhangx.styleannos.Style;
 
-import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javax.annotation.processing.AbstractProcessor;
@@ -55,12 +54,14 @@ public class StyleProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
 
-//        processingEnv.getMessager().printMessage(Diagnostic.Kind., "begin style processing");
+        processingEnv.getMessager().printMessage(Diagnostic.Kind.WARNING, "begin style processing");
 
         for (TypeElement typeElement : set) {
             processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, "style:" + typeElement);
         }
 
-        return false;
+
+
+        return true;
     }
 }
