@@ -1,4 +1,4 @@
-include ':CoreJavaLibs',
+include ':CoreJavaLibs', ':PizzaStore', ':FactoryProcessor', ':FactoryAnnotations',
         ':CoreAndroidLibs',
 
         ':AndroidArchComponents',
