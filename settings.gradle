@@ -1,6 +1,5 @@
-include ':CoreJavaLibs',
+include ':CoreJavaLibs', ':StyleAnnos', ':StyleProcessor', ':Models',
         ':CoreAndroidLibs',
 
         ':AndroidArchComponents',
-        ':ViewRenderer',
         ':DropDownList'

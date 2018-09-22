@@ -1,19 +1,14 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-android {
-    compileSdkVersion 27
 
-    android {
-        androidExtensions {
-            experimental = true
-        }
-    }
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+
 
     defaultConfig {
-        applicationId "com.luckyzhangx.practice.dropdownlist"
-        minSdkVersion 22
-        targetSdkVersion 27
+        applicationId "com.luckyzhangx.models"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -31,9 +26,13 @@ android {
 }
 
 dependencies {
-    implementation project(':CoreAndroidLibs')
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(":CoreAndroidLibs")
+    implementation project(":StyleAnnos")
+
+    annotationProcessor project(":StyleProcessor")
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
