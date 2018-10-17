@@ -3,21 +3,28 @@ package com.luckyzhangx.styleprocessor;
 import com.google.auto.service.AutoService;
 import com.google.common.collect.ImmutableSet;
 import com.luckyzhangx.styleannos.Style;
+import com.luckyzhangx.styleannos.StyleFamily;
+import com.squareup.javapoet.JavaFile;
+import com.squareup.javapoet.MethodSpec;
+import com.squareup.javapoet.TypeSpec;
 
 import java.util.Set;
 
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Completion;
 import javax.annotation.processing.ProcessingEnvironment;
+import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.AnnotationMirror;
 import javax.lang.model.element.Element;
+import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.ExecutableElement;
+import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic;
 
-@AutoService(StyleProcessor.class)
+@AutoService(Processor.class)
 public class StyleProcessor extends AbstractProcessor {
     @Override
     public synchronized void init(ProcessingEnvironment processingEnvironment) {
@@ -54,12 +61,33 @@ public class StyleProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
 
-        processingEnv.getMessager().printMessage(Diagnostic.Kind.WARNING, "begin style processing");
+        processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, "begin style processing");
 
         for (TypeElement typeElement : set) {
-            processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, "style:" + typeElement);
-        }
+            Set<? extends Element> elements = roundEnvironment.getElementsAnnotatedWith(StyleFamily.class);
+            for (Element element : elements) {
+                if (element.getKind() == ElementKind.ANNOTATION_TYPE) {
+                    Set<? extends Element> styleFamilies = roundEnvironment.getElementsAnnotatedWith(((TypeElement) element));
+                    for (Element element1 : styleFamilies) {
 
+                        TypeSpec helloWorld = TypeSpec.classBuilder(element1.getSimpleName().toString())
+                                .addModifiers(Modifier.PUBLIC, Modifier.FINAL)
+                                .build();
+
+                        JavaFile javaFile = JavaFile.builder("com.example.helloworld", helloWorld)
+                                .build();
+                        try {
+                            javaFile.writeTo(processingEnv.getFiler());
+                        } catch (Exception e) {
+
+                        }
+                    }
+                }
+
+            }
+
+            processingEnv.getMessager().printMessage(Diagnostic.Kind.NOTE, "style:" + typeElement);
+        }
 
 
         return true;

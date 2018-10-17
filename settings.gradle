@@ -1,5 +1,4 @@
 include ':CoreJavaLibs', ':StyleAnnos', ':StyleProcessor', ':Models',
         ':CoreAndroidLibs',
 
-        ':AndroidArchComponents',
-        ':DropDownList'
+        ':AndroidArchComponents'
