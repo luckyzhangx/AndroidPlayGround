@@ -1,6 +1,2 @@
 include ':CoreJavaLibs',
-        ':CoreAndroidLibs',
-
-        ':AndroidArchComponents',
-        ':ViewRenderer',
-        ':DropDownList'
+        ':CoreAndroidLibs'
