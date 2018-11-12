@@ -25,11 +25,13 @@ android {
 }
 
 dependencies {
+
     implementation project(":CoreJavaLibs")
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     api rootProject.ext.appcompatv7
+    api rootProject.ext.recyclerView
     api rootProject.ext.constraintLayout
 
     //architecture components
