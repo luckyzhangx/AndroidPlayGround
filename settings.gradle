@@ -1,2 +1,3 @@
-include ':CoreJavaLibs',
-        ':CoreAndroidLibs'
+include ':CoreJavaLibs'
+include ':Demo'
+include ':CoreAndroidLibs'

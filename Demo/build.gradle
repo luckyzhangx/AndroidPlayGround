@@ -1,9 +1,11 @@
-apply plugin: 'com.android.library'
-
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion COMPILE_SDK_VERSION
 
     defaultConfig {
+        applicationId "com.example.demo"
         minSdkVersion MIN_SDK_VERSION
         targetSdkVersion TARGET_SDK_VERSION
         versionCode 1
@@ -23,20 +25,7 @@ android {
 }
 
 dependencies {
-
-    implementation project(":CoreJavaLibs")
-
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    api APP_COMPAT_V7
-    api RECYCLER_VIEW
-    api CONSTRAINT_LAYOUT
-
-    //architecture components
-    api LIFE_CYCLE
-
-    api ANKO
-
+    implementation project(":CoreAndroidLibs")
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
