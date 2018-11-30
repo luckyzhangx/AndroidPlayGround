@@ -6,8 +6,8 @@ android {
     defaultConfig {
         minSdkVersion MIN_SDK_VERSION
         targetSdkVersion TARGET_SDK_VERSION
-        versionCode 1
-        versionName "1.0"
+        versionCode VERSION_CODE
+        versionName VERSION_NAME
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -23,21 +23,15 @@ android {
 }
 
 dependencies {
-
     implementation project(":CoreJavaLibs")
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api APP_COMPAT_V7
-    api RECYCLER_VIEW
-    api CONSTRAINT_LAYOUT
+    ANDROID_API_DEPENDENCIES.each {
+        add(it.configuration, it.dependency)
+    }
 
-    //architecture components
-    api LIFE_CYCLE
-
-    api ANKO
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    ANDOIRD_TEST_DEPENDENCIES.each {
+        add(it.configuration, it.dependency)
+    }
 }

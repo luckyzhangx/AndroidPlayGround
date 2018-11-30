@@ -28,6 +28,9 @@ task clean(type: Delete) {
 }
 
 ext {
+    VERSION_CODE = 1
+    VERSION_NAME = "1.0"
+
     COMPILE_SDK_VERSION = 27
     MIN_SDK_VERSION = 21
     TARGET_SDK_VERSION = 27
@@ -42,4 +45,36 @@ ext {
     KOTLIN_REFLECT = "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
     ANKO = "org.jetbrains.anko:anko:0.10.5"
+
+    JUNIT = "junit:junit:4.12"
+    TEST_RUNNER = 'com.android.support.test:runner:1.0.2'
+    ESPRESSO = 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    RX_ANDROID = 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    RX_JAVA = 'io.reactivex.rxjava2:rxjava:2.2.0'
+
+
+    JAVA_API_DEPENDENCIES = [
+            [configuration: "api", dependency: RX_JAVA],
+            [configuration: "api", dependency: KOTLIN],
+            [configuration: "api", dependency: KOTLIN_REFLECT]
+    ]
+
+    ANDROID_API_DEPENDENCIES = [
+            [configuration: "api", dependency: APP_COMPAT_V7],
+            [configuration: "api", dependency: RECYCLER_VIEW],
+            [configuration: "api", dependency: CONSTRAINT_LAYOUT],
+            [configuration: "api", dependency: LIFE_CYCLE],
+            [configuration: "api", dependency: ANKO],
+    ]
+
+    TEST_DEPENDENCIES = [
+            [cofiguration: "testImplementation", dependency: JUNIT],
+    ]
+
+    ANDOIRD_TEST_DEPENDENCIES = [
+            [configuration: "testImplementation", dependency: JUNIT],
+            [configuration: "androidTestImplementation", dependency: TEST_RUNNER],
+            [configuration: "androidTestImplementation", dependency: ESPRESSO],
+    ]
 }
