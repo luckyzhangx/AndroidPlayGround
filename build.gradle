@@ -77,4 +77,12 @@ ext {
             [configuration: "androidTestImplementation", dependency: TEST_RUNNER],
             [configuration: "androidTestImplementation", dependency: ESPRESSO],
     ]
+
+    def modules = [
+            app: ':CoreAndroidLibs'
+    ]
+
+    APP_DEPENDECIES = [
+            [configuration: "implementation", dependency: project(modules.app)]
+    ]
 }
