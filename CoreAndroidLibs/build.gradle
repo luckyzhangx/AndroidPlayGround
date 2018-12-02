@@ -23,9 +23,7 @@ android {
 }
 
 dependencies {
-    implementation project(":CoreJavaLibs")
-
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    api fileTree(dir: 'libs', include: ['*.jar'])
 
     ANDROID_API_DEPENDENCIES.each {
         add(it.configuration, it.dependency)

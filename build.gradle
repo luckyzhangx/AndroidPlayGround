@@ -43,6 +43,11 @@ ext {
     RX_ANDROID = 'io.reactivex.rxjava2:rxandroid:2.0.2'
     RX_JAVA = 'io.reactivex.rxjava2:rxjava:2.2.0'
 
+    def modules = [
+            java: ':CoreJavaLibs',
+            app : ':CoreAndroidLibs'
+    ]
+
     JAVA_API_DEPENDENCIES = [
             [configuration: "api", dependency: RX_JAVA],
             [configuration: "api", dependency: KOTLIN],
@@ -50,6 +55,7 @@ ext {
     ]
 
     ANDROID_API_DEPENDENCIES = [
+            [configuration: "api", dependency: project(modules.java)],
             [configuration: "api", dependency: APP_COMPAT_V7],
             [configuration: "api", dependency: RECYCLER_VIEW],
             [configuration: "api", dependency: CONSTRAINT_LAYOUT],
@@ -65,10 +71,6 @@ ext {
             [configuration: "testImplementation", dependency: JUNIT],
             [configuration: "androidTestImplementation", dependency: TEST_RUNNER],
             [configuration: "androidTestImplementation", dependency: ESPRESSO],
-    ]
-
-    def modules = [
-            app: ':CoreAndroidLibs'
     ]
 
     APP_DEPENDECIES = [
