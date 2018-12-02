@@ -3,13 +3,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion COMPILE_SDK_VERSION
+    compileSdkVersion COMPILE_SDK_VERSION.toInteger()
 
     defaultConfig {
         applicationId "com.example.demo"
-        minSdkVersion MIN_SDK_VERSION
+        minSdkVersion MIN_SDK_VERSION.toInteger()
         targetSdkVersion TARGET_SDK_VERSION
-        versionCode VERSION_CODE
+        versionCode VERSION_CODE.toInteger()
         versionName VERSION_NAME
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
