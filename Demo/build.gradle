@@ -1,6 +1,4 @@
-APP_PLUGINS.each {
-    apply plugin: it
-}
+apply from: APP_DEPENDENCY_SCRIPT
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()
@@ -23,10 +21,4 @@ android {
         }
     }
 
-}
-
-dependencies {
-    APP_DEPENDECIES.each {
-        add(it.configuration, it.dependency)
-    }
 }
