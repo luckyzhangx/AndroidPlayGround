@@ -76,4 +76,10 @@ ext {
     APP_DEPENDECIES = [
             [configuration: "implementation", dependency: project(modules.app)]
     ]
+
+    APP_PLUGINS = [
+            'com.android.application',
+            'kotlin-android',
+            'kotlin-android-extensions'
+    ]
 }
