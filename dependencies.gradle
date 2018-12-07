@@ -57,5 +57,8 @@ ext {
     ]
 
     APP_DEPENDENCY_SCRIPT = rootProject.file('app_inject_dep.gradle')
-    APP_CONFIG_SCRIPT = rootProject.file('app_config.gradle')
+
+    injectAppDep = { Project project ->
+        project.apply from:APP_DEPENDENCY_SCRIPT
+    }
 }
