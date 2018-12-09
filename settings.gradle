@@ -1,3 +1,4 @@
 include ':CoreJavaLibs'
-include ':Demo'
 include ':CoreAndroidLibs'
+include ':Demo'
+include ':KotlinLabo'

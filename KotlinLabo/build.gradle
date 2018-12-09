@@ -1,0 +1,4 @@
+ext{
+    APPLICATION_ID = "com.luckyzhangx.kotlinlabo"
+}
+apply from: APP_CONFIG_SCRIPT
