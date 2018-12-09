@@ -1,9 +1,13 @@
 apply plugin: 'kotlin'
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(":CoreJavaLibs")
+//    不知道为什么使用 implementation project 方式无法运行，暂时先手动添加依赖
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    JAVA_API_DEPENDENCIES.each {
+        add(it.configuration, it.dependency)
+    }
 }
 
-sourceCompatibility = "7"
-targetCompatibility = "7"
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
