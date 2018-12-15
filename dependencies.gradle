@@ -16,6 +16,8 @@ ext {
     RX_ANDROID = 'io.reactivex.rxjava2:rxandroid:2.0.2'
     RX_JAVA = 'io.reactivex.rxjava2:rxjava:2.2.0'
 
+    GSON = 'com.google.code.gson:gson:2.8.5'
+
     def modules = [
             java: ':CoreJavaLibs',
             app : ':CoreAndroidLibs'
@@ -24,7 +26,8 @@ ext {
     JAVA_API_DEPENDENCIES = [
             [configuration: "api", dependency: RX_JAVA],
             [configuration: "api", dependency: KOTLIN],
-            [configuration: "api", dependency: KOTLIN_REFLECT]
+            [configuration: "api", dependency: KOTLIN_REFLECT],
+            [configuration: "api", dependency: GSON]
     ]
 
     ANDROID_API_DEPENDENCIES = [
@@ -59,6 +62,6 @@ ext {
     APP_DEPENDENCY_SCRIPT = rootProject.file('app_inject_dep.gradle')
 
     injectAppDep = { Project project ->
-        project.apply from:APP_DEPENDENCY_SCRIPT
+        project.apply from: APP_DEPENDENCY_SCRIPT
     }
 }
