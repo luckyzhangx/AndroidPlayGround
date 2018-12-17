@@ -1,3 +1,4 @@
 include ':CoreJavaLibs'
+include ':PagerHeaderDemo'
 include ':Demo'
 include ':CoreAndroidLibs'
