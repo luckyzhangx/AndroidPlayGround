@@ -1,5 +1,9 @@
 rootProject.injectAppDep(project)
 
+androidExtensions {
+    experimental = true
+}
+
 android {
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()
 
@@ -21,4 +25,8 @@ android {
         }
     }
 
+}
+
+dependencies {
+    implementation "com.android.support:design:$APP_COMPAT_VERSION"
 }
