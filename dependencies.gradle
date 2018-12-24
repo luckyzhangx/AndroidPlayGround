@@ -18,6 +18,8 @@ ext {
 
     GSON = 'com.google.code.gson:gson:2.8.5'
 
+    CONROUTINE = 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0-alpha'
+
     def modules = [
             java: ':CoreJavaLibs',
             app : ':CoreAndroidLibs'
@@ -27,7 +29,8 @@ ext {
             [configuration: "api", dependency: RX_JAVA],
             [configuration: "api", dependency: KOTLIN],
             [configuration: "api", dependency: KOTLIN_REFLECT],
-            [configuration: "api", dependency: GSON]
+            [configuration: "api", dependency: GSON],
+            [configuration: "api", dependency: CONROUTINE]
     ]
 
     ANDROID_API_DEPENDENCIES = [
