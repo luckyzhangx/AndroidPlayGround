@@ -18,7 +18,7 @@ ext {
 
     GSON = 'com.google.code.gson:gson:2.8.5'
 
-    CONROUTINE = 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0-alpha'
+    CONROUTINE = 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0'
 
     def modules = [
             java: ':CoreJavaLibs',
