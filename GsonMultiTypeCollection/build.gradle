@@ -1,0 +1,11 @@
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation project(":CoreJavaLibs")
+    JAVA_API_DEPENDENCIES.each {
+        add(it.configuration, it.dependency)
+    }
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
