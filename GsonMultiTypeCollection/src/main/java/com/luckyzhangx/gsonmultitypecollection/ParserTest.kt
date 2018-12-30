@@ -1,8 +1,6 @@
 package com.luckyzhangx.gsonmultitypecollection
 
 import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import com.luckyzhangx.gsonmultitypecollection.adapter.StyleDataTypeFactory
 import com.luckyzhangx.gsonmultitypecollection.data.*
 
 class DataContainer(
@@ -24,14 +22,9 @@ fun main(args: Array<String>) {
 
     val dataContainer = DataContainer(consoleList, eList)
 
-    val json = Gson().toJson(dataContainer)
+    val gson = Gson()
 
-    val gson = GsonBuilder().registerTypeAdapterFactory(
-            StyleDataTypeFactory().apply {
-                registerProvider(ConsoleStyleProvider)
-                registerProvider(ElectronicStyleProvider)
-            }
-    ).create()
+    val json = gson.toJson(dataContainer)
 
     val parsedDataContainer = gson.fromJson<DataContainer>(json, DataContainer::class.java)
 

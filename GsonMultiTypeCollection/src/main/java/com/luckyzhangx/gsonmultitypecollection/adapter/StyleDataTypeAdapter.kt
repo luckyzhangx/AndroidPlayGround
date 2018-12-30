@@ -7,12 +7,14 @@ import com.google.gson.internal.Streams
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonReader
 import com.google.gson.stream.JsonWriter
+import com.luckyzhangx.gsonmultitypecollection.anno.StyleClazzMap
 import com.luckyzhangx.gsonmultitypecollection.data.StyleData
+import java.lang.reflect.Type
 
 class StyleDataTypeFactory : TypeAdapterFactory {
-    val provider = mutableMapOf<Class<*>, StyleClassProvider<*, *>>()
+    private val provider = mutableMapOf<Type, StyleClassProvider>()
 
-    fun registerProvider(styleProvider: StyleClassProvider<*, *>) {
+    private fun registerProvider(styleProvider: StyleClassProvider) {
         provider[styleProvider.clazz] = styleProvider
     }
 
@@ -20,7 +22,25 @@ class StyleDataTypeFactory : TypeAdapterFactory {
         if (!StyleData::class.java.isAssignableFrom(type!!.rawType))
             return null
 
-        val provider = provider[type.rawType]
+        var provider = provider[type.rawType]
+
+        if (provider == null) {
+            val anno =
+                    type.rawType.getAnnotation(com.luckyzhangx.gsonmultitypecollection.anno.StyleClazzMap::class.java)
+                            ?: throw IllegalStateException("${type.rawType}没有定义${StyleClazzMap::class.java}")
+            val map = mutableMapOf<String, Class<*>>().apply {
+                anno.styleClazz.forEach {
+                    this[it.style] = it.clazz.java
+                }
+            }
+
+            registerProvider(StyleClassProvider(type.rawType, map).apply {
+                provider = this
+            })
+        }
+
+        if (provider == null)
+            throw IllegalStateException("")
 
         if (provider != null) {
             val delegate = gson!!.getDelegateAdapter(this, type)
@@ -36,12 +56,11 @@ class StyleDataTypeFactory : TypeAdapterFactory {
 
                     jsonElement.asJsonObject.remove("data")
 
-//                if(tempData == null)...
-
                     val data: T = delegate.fromJsonTree(jsonElement)
                     if (data is StyleData<*>) {
-                        val clazz = provider.getTypeToken(data.style)
+                        val clazz = provider!!.getTypeToken(data.style)
                         try {
+                            // todo: 加上类型判断？
                             data::data.set(Gson().fromJson(tempData, clazz))
                         } catch (e: Exception) {
                             e.printStackTrace()
@@ -55,8 +74,8 @@ class StyleDataTypeFactory : TypeAdapterFactory {
     }
 }
 
-open class StyleClassProvider<T, S : StyleData<T>>(val clazz: Class<S>,
-                                                   val map: Map<String, Class<out T>>) {
+private class StyleClassProvider(val clazz: Type,
+                                 val map: Map<String, Class<*>>) {
     fun getTypeToken(style: String): Class<*>? {
         return map[style]
     }

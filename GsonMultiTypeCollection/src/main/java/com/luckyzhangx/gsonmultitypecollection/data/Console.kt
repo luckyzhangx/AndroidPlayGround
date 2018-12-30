@@ -1,7 +1,14 @@
 package com.luckyzhangx.gsonmultitypecollection.data
 
-interface Console
+import com.google.gson.annotations.JsonAdapter
+import com.luckyzhangx.gsonmultitypecollection.adapter.StyleDataTypeFactory
+import com.luckyzhangx.gsonmultitypecollection.anno.StyleClazz
+import com.luckyzhangx.gsonmultitypecollection.anno.StyleClazzMap
+import com.luckyzhangx.gsonmultitypecollection.data.ConsoleStyle.PS4
+import com.luckyzhangx.gsonmultitypecollection.data.ConsoleStyle.SWITCH
+import com.luckyzhangx.gsonmultitypecollection.data.ConsoleStyle.XBOX
 
+interface Console
 
 object ConsoleStyle {
     const val SWITCH = "switch"
@@ -9,6 +16,14 @@ object ConsoleStyle {
     const val PS4 = "ps4"
 
 }
+
+@StyleClazzMap(
+        StyleClazz(SWITCH, Switch::class),
+        StyleClazz(XBOX, Xbox::class),
+        StyleClazz(PS4, Ps4::class))
+@JsonAdapter(StyleDataTypeFactory::class)
+class ConsoleStyleData(style: String,
+                       data: Console) : StyleData<Console>(style, data)
 
 class Switch(
         val screenSize: Int
