@@ -26,7 +26,3 @@ android {
     }
 
 }
-
-dependencies {
-    implementation "com.android.support:design:$APP_COMPAT_VERSION"
-}

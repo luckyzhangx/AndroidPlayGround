@@ -62,7 +62,7 @@ class PagerFragment : Fragment() {
 
         pagerRV.apply {
             adapter = ContentAdapter().apply {
-                repeat(100) { list.add(Simple()) }
+                repeat(10) { list.add(Simple()) }
             }
         }
     }

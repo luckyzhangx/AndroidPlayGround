@@ -13,6 +13,10 @@ fun RecyclerView.LayoutManager.isAtBottom(): Boolean {
     return findLastCompletelyVisiblePosition() == itemCount - 1
 }
 
+fun RecyclerView.LayoutManager.isAtTop(): Boolean {
+    return tryFindFirstCompletelyVisiblePosition() == 0
+}
+
 fun RecyclerView.LayoutManager.findLastVisiblePosition(): Int {
     return when (this) {
         is LinearLayoutManager ->
