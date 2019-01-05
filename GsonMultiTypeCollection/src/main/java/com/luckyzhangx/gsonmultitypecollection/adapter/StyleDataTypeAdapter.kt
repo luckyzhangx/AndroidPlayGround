@@ -40,7 +40,7 @@ class StyleDataTypeFactory : TypeAdapterFactory {
         }
 
         if (provider == null)
-            throw IllegalStateException("")
+            throw IllegalStateException("${type.rawType}没有定义${StyleClazzMap::class.java}")
 
         if (provider != null) {
             val delegate = gson!!.getDelegateAdapter(this, type)
@@ -61,7 +61,7 @@ class StyleDataTypeFactory : TypeAdapterFactory {
                         val clazz = provider!!.getTypeToken(data.style)
                         try {
                             // todo: 加上类型判断？
-                            data::data.set(Gson().fromJson(tempData, clazz))
+                            data::data.set(gson.fromJson(tempData, clazz))
                         } catch (e: Exception) {
                             e.printStackTrace()
                         }
