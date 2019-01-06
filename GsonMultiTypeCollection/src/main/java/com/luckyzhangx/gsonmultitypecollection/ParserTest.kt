@@ -10,7 +10,7 @@ class DataContainer(
 
 fun main(args: Array<String>) {
     val consoleList = listOf(
-            ConsoleStyleData("switch", Switch(10)),
+            ConsoleStyleData("switch1", Switch(10)),
             ConsoleStyleData("xbox", Xbox("bioshock")),
             ConsoleStyleData("ps4", Ps4("monster hunter"))
     )

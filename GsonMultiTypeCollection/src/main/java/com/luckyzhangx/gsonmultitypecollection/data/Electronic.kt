@@ -20,7 +20,12 @@ object ElectronicStyle {
 )
 
 @JsonAdapter(StyleDataTypeFactory::class)
-class ElectronicStyleData(val category: String) : StyleData<Electronic>()
+class ElectronicStyleData(style: String, data: Electronic, val category: String) : StyleData<Electronic>() {
+    init {
+        super.style = style
+        super.data = data
+    }
+}
 
 class SwitchElectronic(val state: Boolean) : Electronic
 class Bulb(val light: Int) : Electronic

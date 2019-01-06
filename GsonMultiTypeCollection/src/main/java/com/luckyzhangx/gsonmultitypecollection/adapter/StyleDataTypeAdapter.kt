@@ -18,8 +18,9 @@ class StyleDataTypeFactory : TypeAdapterFactory {
         provider[styleProvider.clazz] = styleProvider
     }
 
-    override fun <T : Any?> create(gson: Gson?, type: TypeToken<T>?): TypeAdapter<T>? {
-        if (!StyleData::class.java.isAssignableFrom(type!!.rawType))
+    override fun <T : Any?> create(gson: Gson, type: TypeToken<T>): TypeAdapter<T>? {
+
+        if (!StyleData::class.java.isAssignableFrom(type.rawType))
             return null
 
         var provider = provider[type.rawType]
@@ -39,39 +40,39 @@ class StyleDataTypeFactory : TypeAdapterFactory {
             })
         }
 
-        if (provider == null)
-            throw IllegalStateException("${type.rawType}没有定义${StyleClazzMap::class.java}")
+        val delegate = gson.getDelegateAdapter(this, type)
 
-        if (provider != null) {
-            val delegate = gson!!.getDelegateAdapter(this, type)
-            return object : TypeAdapter<T>() {
-                override fun write(out: JsonWriter?, value: T) {
-                    delegate.write(out, value)
-                }
+        return object : TypeAdapter<T>() {
+            override fun write(out: JsonWriter?, value: T) {
+                delegate.write(out, value)
+            }
 
-                override fun read(`in`: JsonReader?): T {
-                    val jsonElement = Streams.parse(`in`)
+            override fun read(`in`: JsonReader?): T {
+                val jsonElement = Streams.parse(`in`)
 
-                    val tempData = jsonElement.asJsonObject.get("data")
+                val tempData = jsonElement.asJsonObject.remove("data")
 
-                    jsonElement.asJsonObject.remove("data")
-
-                    val data: T = delegate.fromJsonTree(jsonElement)
-                    if (data is StyleData<*>) {
-                        val clazz = provider!!.getTypeToken(data.style)
-                        try {
-                            // todo: 加上类型判断？
-                            data::data.set(gson.fromJson(tempData, clazz))
-                        } catch (e: Exception) {
-                            e.printStackTrace()
-                        }
+                val styleData: T = delegate.fromJsonTree(jsonElement)
+                if (styleData is StyleData<*>) {
+                    if (styleData.style.isNullOrBlank()) {
+                        throw IllegalStateException("style 数据没有定义 style 类型：$jsonElement")
                     }
-                    return data
+                    val clazz = provider!!.getTypeToken(styleData.style ?: "")
+                            ?: throw java.lang.IllegalStateException("无法获取 $type style:${styleData.style} 对应的数据类型，" +
+                                    "\n请确认 $type 的 ${StyleClazzMap::class.java.simpleName} 定义了 ${styleData.style} ")
+
+                    try {
+                        // todo: 加上类型判断？
+                        styleData::data.set(gson.fromJson(tempData, clazz))
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
                 }
+                return styleData
             }
         }
-        return null
     }
+
 }
 
 private class StyleClassProvider(val clazz: Type,

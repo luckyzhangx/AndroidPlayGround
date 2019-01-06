@@ -22,7 +22,12 @@ object ConsoleStyle {
         StyleClazz(XBOX, Xbox::class),
         StyleClazz(PS4, Ps4::class))
 @JsonAdapter(StyleDataTypeFactory::class)
-class ConsoleStyleData : StyleData<Console>()
+class ConsoleStyleData(style: String, data: Console) : StyleData<Console>() {
+    init {
+        super.style = style
+        super.data = data
+    }
+}
 
 class Switch(
         val screenSize: Int
