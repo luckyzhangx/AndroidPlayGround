@@ -1,4 +1,6 @@
-rootProject.injectAppDep(project)
+apply plugin: 'com.android.application'
+
+rootProject.injectAndroidDep(project)
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()

@@ -1,9 +1,0 @@
-APP_PLUGINS.each {
-    apply plugin: it
-}
-
-dependencies {
-    APP_DEPENDECIES.each {
-        add(it.configuration, it.dependency)
-    }
-}

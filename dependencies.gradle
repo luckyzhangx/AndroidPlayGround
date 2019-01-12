@@ -56,15 +56,21 @@ ext {
             [configuration: "implementation", dependency: project(modules.app)]
     ]
 
-    APP_PLUGINS = [
-            'com.android.application',
+    ANDROID_DEP_PLUGINS = [
             'kotlin-android',
             'kotlin-android-extensions'
     ]
 
-    APP_DEPENDENCY_SCRIPT = rootProject.file('app_inject_dep.gradle')
+//    注入 Android 依赖。注意：module 自己定义 application 或者 library。
+    injectAndroidDep = { Project project ->
+        ANDROID_DEP_PLUGINS.each {
+            project.apply plugin: it
+        }
 
-    injectAppDep = { Project project ->
-        project.apply from: APP_DEPENDENCY_SCRIPT
+        project.dependencies {
+            APP_DEPENDECIES.each {
+                add(it.configuration, it.dependency)
+            }
+        }
     }
 }
