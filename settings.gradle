@@ -1,3 +1,5 @@
 include ':CoreJavaLibs'
+include ':CustomViewLib'
+include ':CustomViewDemo'
 include ':Demo'
 include ':CoreAndroidLibs'
