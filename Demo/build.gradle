@@ -1,7 +1,5 @@
 apply plugin: 'com.android.application'
-
 rootProject.injectAndroidDep(project)
-
 android {
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()
 
@@ -12,7 +10,7 @@ android {
         versionCode VERSION_CODE.toInteger()
         versionName VERSION_NAME
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -23,4 +21,6 @@ android {
         }
     }
 
+}
+dependencies {
 }
