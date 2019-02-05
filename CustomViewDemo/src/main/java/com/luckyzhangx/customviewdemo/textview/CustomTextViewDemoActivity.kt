@@ -2,11 +2,10 @@ package com.luckyzhangx.customviewdemo.textview
 
 import android.graphics.Typeface
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.text.SpannableString
 import android.text.Spanned
-import android.text.style.TypefaceSpan
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.luckyzhangx.customviewdemo.R
 import com.luckyzhangx.customviewlib.textview.span.CustomReplacementSpan
 import kotlinx.android.synthetic.main.activity_custom_text_view_demo.*
