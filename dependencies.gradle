@@ -1,6 +1,7 @@
 ext {
     APP_COMPAT_V7 = "androidx.appcompat:appcompat:1.0.0"
     RECYCLER_VIEW = "androidx.recyclerview:recyclerview:1.0.0"
+    CARDVIEW = 'androidx.cardview:cardview:1.0.0'
     CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:1.1.2"
     LIFE_CYCLE = "androidx.lifecycle:lifecycle-common:2.0.0-rc01"
 
@@ -37,6 +38,7 @@ ext {
             [configuration: "api", dependency: project(modules.java)],
             [configuration: "api", dependency: APP_COMPAT_V7],
             [configuration: "api", dependency: RECYCLER_VIEW],
+            [configuration: "api", dependency: CARDVIEW],
             [configuration: "api", dependency: CONSTRAINT_LAYOUT],
             [configuration: "api", dependency: LIFE_CYCLE],
             [configuration: "api", dependency: ANKO],
