@@ -19,6 +19,8 @@ ext {
 
     GSON = 'com.google.code.gson:gson:2.8.5'
 
+    FRESCO = 'com.facebook.fresco:fresco:1.12.1'
+
     CONROUTINE = 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0'
 
     def modules = [
@@ -42,6 +44,7 @@ ext {
             [configuration: "api", dependency: CONSTRAINT_LAYOUT],
             [configuration: "api", dependency: LIFE_CYCLE],
             [configuration: "api", dependency: ANKO],
+            [configuration: "api", dependency: FRESCO],
     ]
 
     TEST_DEPENDENCIES = [
