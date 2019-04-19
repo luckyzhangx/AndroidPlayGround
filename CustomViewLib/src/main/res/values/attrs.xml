@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="RelativeFrameLayout">
+        <attr name="margin_vertical" format="dimension" />
+        <attr name="margin_horizontal" format="dimension" />
+    </declare-styleable>
+
     <declare-styleable name="RatioFrameLayout">
         <attr name="measureBase" format="enum">
             <enum name="width" value="0" />
