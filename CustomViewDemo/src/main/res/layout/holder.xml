@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.luckyzhangx.customviewlib.RelativeSizeFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f00"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="#ffdb00"
+        android:gravity="center"
+        android:text="holder"
+        android:textSize="48sp"
+        />
+
+</com.luckyzhangx.customviewlib.RelativeSizeFrameLayout>

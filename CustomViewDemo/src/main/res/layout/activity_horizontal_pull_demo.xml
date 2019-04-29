@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HorizontalPullDemoActivity"
+    >
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <com.luckyzhangx.customviewlib.horizonpullbounce.HorizontalLoadMoreLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:background="#0ff"
+        android:visibility="gone"
+        >
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#ff0"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#f0f"
+                >
+
+                <TextView
+                    android:layout_width="1000dp"
+                    android:layout_height="1000dp"
+                    android:text="hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+                    />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+        <!--<androidx.recyclerview.widget.RecyclerView-->
+        <!--android:id="@+id/list"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="#FF0"-->
+        <!--android:clipChildren="false"-->
+        <!--android:clipToPadding="false"-->
+        <!--android:paddingEnd="60dp"-->
+        <!--/>-->
+
+        <TextView
+            android:id="@+id/loadMore"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#000"
+            android:gravity="center"
+            android:text="loadMore"
+            android:textColor="#fff"
+            android:translationY="1920px"
+            />
+    </com.luckyzhangx.customviewlib.horizonpullbounce.HorizontalLoadMoreLayout>
+
+
+</FrameLayout>

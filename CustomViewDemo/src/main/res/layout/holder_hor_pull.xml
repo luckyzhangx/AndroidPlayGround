@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.luckyzhangx.customviewlib.horizonpullbounce.TRHorizontalLoadMoreLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/loadMoreLayout"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    >
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingStart="6dp"
+        android:paddingEnd="60dp"
+        />
+</com.luckyzhangx.customviewlib.horizonpullbounce.TRHorizontalLoadMoreLayout>
