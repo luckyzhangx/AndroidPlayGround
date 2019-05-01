@@ -8,7 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.luckyzhangx.corejavalibs.core.configure
 import com.luckyzhangx.corejavalibs.core.use
 import com.luckyzhangx.customviewdemo.R
+import com.luckyzhangx.customviewdemo.recyclerview.Adapter
 import com.luckyzhangx.customviewlib.horizonpullbounce.attachToRecyclerView
+import com.luckyzhangx.customviewlib.infiniteadapter.InfiniteAdapter
+import com.luckyzhangx.customviewlib.infiniteadapter.startCarousel
 import kotlinx.android.synthetic.main.holder_hor_pull.view.*
 import org.jetbrains.anko.dip
 
@@ -22,7 +25,7 @@ class PullHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
         use(itemView) {
             configure(list) {
                 layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context, androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL, false)
-                adapter = com.luckyzhangx.customviewdemo.recyclerview.Adapter(4)
+                adapter = Adapter(4)
 //                com.luckyzhangx.customviewdemo.recyclerview.NoPaddingPagerSnapHelper().attachToRecyclerView(this)
 
                 addItemDecoration(object : RecyclerView.ItemDecoration() {
@@ -34,6 +37,7 @@ class PullHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
                     }
                 })
                 itemView.loadMoreLayout.attachToRecyclerView(this, dip(20))
+                this.startCarousel(1000)
             }
 //
         }
