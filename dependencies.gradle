@@ -3,7 +3,9 @@ ext {
     RECYCLER_VIEW = "androidx.recyclerview:recyclerview:1.0.0"
     CARDVIEW = 'androidx.cardview:cardview:1.0.0'
     CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:1.1.2"
-    LIFE_CYCLE = "androidx.lifecycle:lifecycle-common:2.0.0-rc01"
+    LIFE_CYCLE = "androidx.lifecycle:lifecycle-extensions:2.0.0"
+    LIFE_CYCLE_SAVESTATE = "androidx.lifecycle:lifecycle-viewmodel-savedstate:1.0.0-alpha01"
+    LIFE_CYCLE_ANNO = "androidx.lifecycle:lifecycle-compiler:2.0.0"
 
     KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION"
     KOTLIN_REFLECT = "org.jetbrains.kotlin:kotlin-reflect:$KOTLIN_VERSION"
@@ -22,6 +24,7 @@ ext {
     FRESCO = 'com.facebook.fresco:fresco:1.12.1'
 
     CONROUTINE = 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0'
+    CONROUTINE_ANDROID = 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0'
 
     def modules = [
             java: ':CoreJavaLibs',
@@ -43,8 +46,11 @@ ext {
             [configuration: "api", dependency: CARDVIEW],
             [configuration: "api", dependency: CONSTRAINT_LAYOUT],
             [configuration: "api", dependency: LIFE_CYCLE],
+            [configuration: "api", dependency: LIFE_CYCLE_SAVESTATE],
+//            [configuration: "kapt", dependency: LIFE_CYCLE_ANNO],
             [configuration: "api", dependency: ANKO],
             [configuration: "api", dependency: FRESCO],
+            [configuration: "api", dependency: CONROUTINE_ANDROID],
     ]
 
     TEST_DEPENDENCIES = [
