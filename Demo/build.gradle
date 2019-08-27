@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 rootProject.injectAndroidDep(project)
 android {
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()
@@ -24,4 +26,9 @@ android {
 }
 dependencies {
     implementation project(":CustomViewLib")
+
+    implementation("com.android.support:design:27.1.0")
+    implementation("com.daimajia.swipelayout:library:1.2.0@aar")
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 }
