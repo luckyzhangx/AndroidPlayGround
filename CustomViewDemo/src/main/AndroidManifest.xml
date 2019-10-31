@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.luckyzhangx.customviewdemo"
+    tools:ignore="GoogleAppIndexingWarning"
     >
 
     <application
@@ -11,12 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         >
-        <activity android:name=".HorizontalPullDemoActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".gridimg.GridImgActivity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity android:name=".CustomViewDemoActivity">
             <intent-filter>
@@ -24,18 +24,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".textview.CustomTextViewDemoActivity" />
-        <activity android:name=".PullBounceDemoActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
+        <activity android:name=".HorizontalPullDemoActivity" />
+        <activity android:name=".CustomViewDemoActivity" />
+        <activity android:name=".textview.CustomTextViewDemoActivity" />
+        <activity android:name=".PullBounceDemoActivity" />
     </application>
 
 </manifest>
