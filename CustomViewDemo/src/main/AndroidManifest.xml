@@ -15,10 +15,8 @@
         android:theme="@style/AppTheme"
         >
         <activity android:name=".gridimg.GridImgActivity">
-
-
         </activity>
-        <activity android:name=".CustomViewDemoActivity">
+        <activity android:name=".recyclerview.sticky.StickyTestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
