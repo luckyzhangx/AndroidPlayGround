@@ -1,5 +1,5 @@
 ext {
-    APP_COMPAT_V7 = "androidx.appcompat:appcompat:1.0.0"
+    APP_COMPAT_V7 = "androidx.appcompat:appcompat:1.1.0"
     RECYCLER_VIEW = "androidx.recyclerview:recyclerview:1.0.0"
     CARDVIEW = 'androidx.cardview:cardview:1.0.0'
     CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:1.1.2"
@@ -22,6 +22,8 @@ ext {
     GSON = 'com.google.code.gson:gson:2.8.5'
 
     FRESCO = 'com.facebook.fresco:fresco:1.12.1'
+
+    OKHTTP = 'com.squareup.okhttp3:okhttp:4.1.0'
 
     CONROUTINE = 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0'
     CONROUTINE_ANDROID = 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0'
@@ -51,6 +53,7 @@ ext {
             [configuration: "api", dependency: ANKO],
             [configuration: "api", dependency: FRESCO],
             [configuration: "api", dependency: CONROUTINE_ANDROID],
+            [configuration: "api", dependency: OKHTTP],
     ]
 
     TEST_DEPENDENCIES = [
