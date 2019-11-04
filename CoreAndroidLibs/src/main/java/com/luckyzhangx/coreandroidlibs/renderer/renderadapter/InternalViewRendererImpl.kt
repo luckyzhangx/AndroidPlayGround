@@ -9,7 +9,7 @@ import java.lang.reflect.Constructor
 
 
 // internal use only
-object InternalViewRendererImpl {
+internal object InternalViewRendererImpl {
 
     @JvmStatic
     fun getViewHolderType(renderer: Any): Int {
