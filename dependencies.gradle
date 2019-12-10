@@ -7,8 +7,8 @@ ext {
     LIFE_CYCLE_SAVESTATE = "androidx.lifecycle:lifecycle-viewmodel-savedstate:1.0.0-alpha01"
     LIFE_CYCLE_ANNO = "androidx.lifecycle:lifecycle-compiler:2.0.0"
 
-    KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION"
-    KOTLIN_REFLECT = "org.jetbrains.kotlin:kotlin-reflect:$KOTLIN_VERSION"
+    KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
+    KOTLIN_REFLECT = "org.jetbrains.kotlin:kotlin-reflect"
 
     ANKO = "org.jetbrains.anko:anko:0.10.5"
 
@@ -23,7 +23,7 @@ ext {
 
     FRESCO = 'com.facebook.fresco:fresco:1.12.1'
 
-    CONROUTINE = 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0'
+    CONROUTINE = 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2'
     CONROUTINE_ANDROID = 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0'
 
     def modules = [
