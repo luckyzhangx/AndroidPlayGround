@@ -8,7 +8,11 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import org.jetbrains.anko.backgroundColor
 
-// Created by luckyzhangx on 2019-10-11.
+/**
+ * 根据不同的图片数目将图片显示为不同的布局
+ *
+ * Created by luckyzhangx on 2019-10-11.
+ */
 class PoiCommentGridImgView @JvmOverloads
 constructor(context: Context,
             attrs: AttributeSet? = null,

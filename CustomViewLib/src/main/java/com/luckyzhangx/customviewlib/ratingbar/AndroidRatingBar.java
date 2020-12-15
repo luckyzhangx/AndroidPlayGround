@@ -239,7 +239,8 @@ public class AndroidRatingBar extends RatingBar {
   private void applyTintForDrawable(Drawable drawable, ColorStateList tintList) {
     if (tintList != null) {
       if (drawable instanceof BaseDrawable) {
-        drawable.setTintList(tintList);
+        //4系统不cast，会导致NoSuchMethodError
+        ((BaseDrawable) drawable).setTintList(tintList);
       } else {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
           drawable.setTintList(tintList);
@@ -331,5 +332,13 @@ public class AndroidRatingBar extends RatingBar {
   public void setStarSpacing(float starSpacing) {
     this.starSpacing = starSpacing;
     requestLayout();
+  }
+
+  public void setTintColors(ColorStateList starColor, ColorStateList secondProgressColor,
+      ColorStateList bgColor) {
+    mStarColor = starColor;
+    mSubStarColor = secondProgressColor;
+    mBgColor = bgColor;
+    applyProgressTints();
   }
 }
